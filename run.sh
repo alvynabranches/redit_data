@@ -30,7 +30,7 @@ export DATADIR="gs://${BUCKET?}/reddit/$(date +"%Y%m%d")"
 # The below uses values of $DATASET and $TABLE set
 # in the previous section.
 
-python3 -m pip install apache_beam google-apitools
+python3 -m pip install --upgrade apache_beam google-apitools
 python3 create_data.py \
   --output_dir ${DATADIR?} \
   --reddit_table ${PROJECT?}:${DATASET?}.${TABLE?} \
