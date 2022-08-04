@@ -33,11 +33,13 @@ export DATADIR="gs://${BUCKET?}/reddit/$(date +"%Y%m%d")"
 # The below uses values of $DATASET and $TABLE set
 # in the previous section.
 
-python create_data.py \
+python3 -m pip install apache_beam
+python3 create_data.py \
   --output_dir ${DATADIR?} \
   --reddit_table ${PROJECT?}:${DATASET?}.${TABLE?} \
   --runner DataflowRunner \
   --temp_location ${DATADIR?}/temp \
   --staging_location ${DATADIR?}/staging \
   --project ${PROJECT?} \
-  --dataset_format TF
+  --dataset_format JSON
+  --region us-east1
