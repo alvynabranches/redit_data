@@ -38,5 +38,5 @@ python3 create_data.py \
   --temp_location ${DATADIR?}/temp \
   --staging_location ${DATADIR?}/staging \
   --project ${PROJECT?} \
-  --dataset_format JSON
+  --dataset_format JSON \
   --region us-central1
